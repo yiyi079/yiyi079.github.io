@@ -7,9 +7,30 @@
 		<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
 		<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+		<script>
+			function isEmpty(s) {
+				if (s == null || s === '') {
+					return true;
+				}
+				return false;
+			}
+			function add(){
+    				var url = document.getElementById('url').value;
+    				if(isEmpty(url)) {
+					window.location.replace("https://proxy.yice.eu.org");
+				}
+				window.location.replace(document.getElementById('protocol').value + url);
+			}
+		</script>
 	</head>
 	<body>
 		
 		<h1 id="myHeading">Hello!</h1>
+		<form>
+			<input type="radio" name="protocol" id="protocol" value="https://" checked="checked" />https<br/>
+			<input type="radio" name="protocol" id="protocol" value="http://" />http<br/>
+			<input type="text" name="url" id="url" placeholder="www.google.com" />
+			<button type="submit" onclick="go()">Go!</button>
+		</form>
 	</body>
 </html>
