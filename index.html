@@ -17,9 +17,12 @@
 			function go(){
     				var url = document.getElementById('url').value;
     				if(isEmpty(url)) {
-					window.location.replace("https://proxy.yice.eu.org");
+					window.location.href("https://proxy.yice.eu.org");
 				}
-				window.location.replace(document.getElementById('protocol').value + url);
+				if(document.getElementById('protocol').value == "https") {
+					window.location.href("https://proxy.yice.eu.org/proxy/" + url);
+				}
+				window.location.href("https://proxy.yice.eu.org/http/" + url);
 			}
 		</script>
 	</head>
@@ -27,8 +30,8 @@
 		
 		<h1 id="myHeading">Hello!</h1>
 		<form target="hidden">
-			<input type="radio" name="protocol" id="protocol" value="https://" checked="checked" />https<br/>
-			<input type="radio" name="protocol" id="protocol" value="http://" />http<br/>
+			<input type="radio" name="protocol" id="protocol" value="https" checked="checked" />https<br/>
+			<input type="radio" name="protocol" id="protocol" value="http" />http<br/>
 			<input type="text" name="url" id="url" placeholder="www.google.com" />
 			<button type="submit" onclick="go()">Go!</button>
 		</form>
