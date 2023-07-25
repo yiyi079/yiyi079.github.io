@@ -30,14 +30,12 @@
 		</script>
 	</head>
 	<body>
-		
 		<h1 id="myHeading">Hello!</h1>
-		<form target="hidden">
-			<input type="radio" name="protocol" id="protocol" value="https" checked="checked" />https<br/>
-			<input type="radio" name="protocol" id="protocol" value="http" />http<br/>
-			<input type="text" name="url" id="url" placeholder="www.google.com" />
-			<button type="submit" onclick="go()">Go!</button>
-		</form>
-		<iframe name="hidden" style="display:none;"></iframe>
+		<select name="protocol" id="protocol">
+			<option value="https" selected="selected">https</option>
+			<option value="http">http</option>
+		</select>
+		<input type="text" name="url" id="url" placeholder="www.google.com" />
+		<button type="submit" onclick="go()">Go!</button>
 	</body>
 </html>
