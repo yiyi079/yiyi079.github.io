@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cn">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Hello!</title>
+		<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+		<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+		<script>
+			function isEmpty(s) {
+				if (s == null || s === '') {
+					return true;
+				}
+				return false;
+			}
+			function go(){
+    				var url = document.getElementById('url').value;
+    				if(isEmpty(url)) {
+					window.location.href="https://proxy.yice.eu.org";
+					return;
+				}
+				if(document.getElementById('protocol').value === "https") {
+					window.location.href="https://proxy.yice.eu.org/proxy/" + url;
+					return;
+				}
+				window.location.href="https://proxy.yice.eu.org/http/" + url;
+				return;
+			}
+		</script>
+	</head>
+	<body>
+		<h1 id="myHeading">Hello!</h1>
+		<select name="protocol" id="protocol">
+			<option value="https" selected="selected">https</option>
+			<option value="http">http</option>
+		</select>
+		<input type="text" name="url" id="url" placeholder="www.google.com" />
+		<button type="submit" onclick="go()">Go!</button>
+	</body>
+</html>
